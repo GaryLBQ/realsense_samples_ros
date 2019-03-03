@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp_serialization
     rospy
   )
+find_package(OpemCV REQUIRED)
 
 include(FindPkgConfig)
 pkg_check_modules(PERSONTRACKING REQUIRED realsense_persontracking)
