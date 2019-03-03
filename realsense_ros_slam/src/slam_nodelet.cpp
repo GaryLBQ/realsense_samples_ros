@@ -377,7 +377,7 @@ public:
     // Publish tracking accuracy
     rs::slam::tracking_accuracy accuracy = slamPtr->get_tracking_accuracy();
     TrackingAccuracy accuracyMsg;
-    accuracyMsg.header.stamp = ros::Time(feTimeStamp);
+    accuracyMsg.header.stamp = ros::Time(feTimeStamp/1000);
     accuracyMsg.header.seq = feFrameNum;
     accuracyMsg.tracking_accuracy = (uint32_t)accuracy;
     pub_accuracy.publish(accuracyMsg);
@@ -396,7 +396,7 @@ public:
     if (is_pub_odom)
     {
       nav_msgs::Odometry odom;
-      odom.header.stamp = ros::Time(feTimeStamp);
+      odom.header.stamp = ros::Time(feTimeStamp/1000);
       odom.header.seq = feFrameNum;
       odom.header.frame_id = "odom";
       odom.pose.pose.position.x = pose2d.x;
